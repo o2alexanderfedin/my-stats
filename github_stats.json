@@ -1,0 +1,62 @@
+{
+  "user": {
+    "login": "o2alexanderfedin",
+    "profileUrl": "https://github.com/o2alexanderfedin",
+    "generatedAt": "2025-09-10T04:24:27.337Z"
+  },
+  "repositories": {
+    "created": 64,
+    "forked": 168,
+    "total": 232,
+    "forkedAndTouched": 22
+  },
+  "commits": {
+    "byYear": {
+      "2020": {
+        "commits": 0,
+        "totalContributions": 0
+      },
+      "2021": {
+        "commits": 2,
+        "totalContributions": 41
+      },
+      "2022": {
+        "commits": 0,
+        "totalContributions": 661
+      },
+      "2023": {
+        "commits": 5,
+        "totalContributions": 843
+      },
+      "2024": {
+        "commits": 14,
+        "totalContributions": 435
+      },
+      "2025": {
+        "commits": 2232,
+        "totalContributions": 5137
+      }
+    },
+    "dailyStats": {
+      "daysWithCommits": 542,
+      "totalCommitsOnActiveDays": 7117,
+      "minCommitsPerDay": 1,
+      "maxCommitsPerDay": 300,
+      "averageCommitsPerActiveDay": 13.13
+    },
+    "total": {
+      "commits": 2253,
+      "years": 5,
+      "averagePerYear": 450.6,
+      "minYear": 0,
+      "maxYear": 2232
+    }
+  },
+  "summary": {
+    "totalRepositories": 232,
+    "totalCommits": 2253,
+    "activeDays": 542,
+    "averageCommitsPerYear": 450.6,
+    "averageCommitsPerActiveDay": 13.13
+  }
+}
