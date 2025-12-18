@@ -64,21 +64,22 @@ let allDaysWithCommits = [];
 // Process each year
 Object.entries(allYearsData).forEach(([yearKey, yearData]) => {
   const year = yearKey.replace('y', '');
-  const yearCommits = yearData.totalCommitContributions;
+  // Use totalContributions for more accurate count (includes all contributions)
+  const actualCommits = yearData ? yearData.contributionCalendar.totalContributions : 0;
   
   commitStats.byYear[year] = {
-    commits: yearCommits,
-    totalContributions: yearData.contributionCalendar.totalContributions
+    commits: actualCommits,
+    totalContributions: actualCommits
   };
   
-  totalCommits += yearCommits;
+  totalCommits += actualCommits;
   
   // Track min/max per year
-  if (yearCommits < commitStats.total.minYear) {
-    commitStats.total.minYear = yearCommits;
+  if (actualCommits < commitStats.total.minYear) {
+    commitStats.total.minYear = actualCommits;
   }
-  if (yearCommits > commitStats.total.maxYear) {
-    commitStats.total.maxYear = yearCommits;
+  if (actualCommits > commitStats.total.maxYear) {
+    commitStats.total.maxYear = actualCommits;
   }
   
   // Process daily data
@@ -99,9 +100,11 @@ Object.entries(allYearsData).forEach(([yearKey, yearData]) => {
   });
 });
 
-// Calculate final stats
+// Calculate final stats  
 commitStats.total.commits = totalCommits;
-commitStats.total.averagePerYear = Math.round(totalCommits / 5 * 100) / 100;
+// Calculate average per year based on actual period (2020 was partial year)
+const fullYears = 4.25; // 2021-2024 + partial 2020 and 2025
+commitStats.total.averagePerYear = Math.round(totalCommits / fullYears * 100) / 100;
 
 commitStats.dailyStats.daysWithCommits = allDaysWithCommits.length;
 commitStats.dailyStats.totalCommitsOnActiveDays = allDaysWithCommits.reduce((sum, count) => sum + count, 0);
